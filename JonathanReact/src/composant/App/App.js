@@ -1,7 +1,11 @@
 import React from 'react';
 import Entete from '../Entete/Entete';
-import ListeProduit from '../ListeProduit/ListeProduit';
+import {Route, Routes, BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
+import Accueil from '../Accueil/Accueil';
+import Produit from '../Produit/Produit';
+import ListeProduit from '../ListeProduit/ListeProduit';
+import Details from '../Details/Details';
 
 export default class App extends React.Component{
   constructor(){
@@ -9,11 +13,18 @@ export default class App extends React.Component{
     this.message = "Ceci est un message";
     this.compteur = 0;
     this.state = { 
-      compteur : 0
+      compteur : 0,
+      estConnecte : false
     };
 
-
     this.augmenteCompte = this.augmenteCompte.bind(this);
+    this.connection = this.connection.bind(this);
+  }
+
+  connection() {
+    this.setState({
+      estConnecte : !this.state.estConnecte
+    });
   }
 
   augmenteCompte(){
@@ -29,12 +40,26 @@ export default class App extends React.Component{
 
   render(){
     return (
-      <section className='App'>
-        <Entete />
-        <button onClick={this.augmenteCompte}>Clique ({this.state.compteur})</button>
-        <ListeProduit compteur={this.state.compteur} />
 
-      </section>
+      <Router>
+        <Entete seConnecter={this.connection} estConnecte={this.state.estConnecte} />
+        <Routes>
+
+          <Route path="/" element={<Accueil/> } />
+
+          <Route path='/produit' element={<ListeProduit/>} />
+
+          <Route path='/produit/:id' element={<Details />} />
+
+        </Routes>
+      </Router>
+
+      // <section className='App'>
+      //   <button onClick={this.augmenteCompte}>Clique ({this.state.compteur})</button>
+      //   <ListeProduit estConnecte={this.state.estConnecte} compteur={this.state.compteur} />
+  
+
+      // </section>
     );
   }
 }
