@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Produit from '../Produit/Produit';
 import './ListeProduit.css';
 
@@ -40,10 +41,12 @@ export default class ListeProduit extends React.Component{
 
     let aProduits = this.state.produits.map((unProduit, index)=>{
       //console.log(unProduit, index)
-      return ( 
+      // Choisir sa façon, pas les deux...}
         //<Produit nom={unProduit.nom} id={unProduit.id_biere} description={unProduit.description} />
-        <Produit estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> // Choisir sa façon, pas les deux...
-
+      return ( 
+        <Link key={unProduit.id_biere} to={"/produit/" + unProduit.id_biere}>
+            <Produit estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 
+        </Link>
       );
     })
     console.log(aProduits)

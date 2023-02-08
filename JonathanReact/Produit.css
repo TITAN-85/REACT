@@ -20,3 +20,13 @@
 .produit .texte .nom, .produit .texte .brasserie {
     display: block;
 }
+/* #152732 */
+/* #2b4c61 */
+/* #162b4d */
+.produit {
+    background-color: #162b4d;
+    margin: 2px;
+    color: aliceblue;
+    min-width: 260px;
+    min-height: 120px;
+}
