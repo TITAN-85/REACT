@@ -53,7 +53,7 @@ export default class ListeProduit extends React.Component{
         </Link>
       );
     })
-    console.log(aProduits)
+    // console.log(aProduits)
     
     if(aProduits.length <= 0){
       aProduits = <p>Aucun produit disponible</p>;
