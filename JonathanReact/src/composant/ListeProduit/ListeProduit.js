@@ -29,7 +29,7 @@ export default class ListeProduit extends React.Component{
     fetch("http://127.0.0.1:8000/webservice/php/biere")
       .then(data=>data.json())
       .then(data=>{
-        console.log(data);
+        // console.log(data);
         this.setState({
           produits : data.data
         })
@@ -39,13 +39,17 @@ export default class ListeProduit extends React.Component{
 
   render(){
 
-    let aProduits = this.state.produits.map((unProduit, index)=>{
-      //console.log(unProduit, index)
+    let aProduits = this.state.produits.map((unProduit)=>{
+
+      // key=unProduit.id_biere
+      // key={unProduit.id}
+      // console.log(unProduit.id_biere)
+      // key={unProduit.id_biere}
       // Choisir sa façon, pas les deux...}
         //<Produit nom={unProduit.nom} id={unProduit.id_biere} description={unProduit.description} />
       return ( 
         <Link key={unProduit.id_biere} to={"/produit/" + unProduit.id_biere}>
-            <Produit estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 
+            <Produit key={unProduit.id_biere} estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 
         </Link>
       );
     })

@@ -18,7 +18,7 @@ export default class Entete extends React.Component{
     console.log(evt.target.value)
     let courriel= evt.target.value;
     let valide;
-    if(courriel != ""){ // Valide un courriel non vide... à refaire genre avec un regexp... tsé...
+    if(courriel !== ""){ // Valide un courriel non vide... à refaire genre avec un regexp... tsé...
       valide = true;
     }else{
       valide = false;

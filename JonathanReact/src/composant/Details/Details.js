@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function Details({estConnecte, courriel}){
-    console.log(estConnecte, courriel)
+    // console.log(estConnecte, courriel)
     const {id} = useParams();
     //const params = useParams();
     //console.log(id, params)
@@ -17,9 +17,9 @@ export default function Details({estConnecte, courriel}){
         fetch("//127.0.0.1:8000/webservice/php/biere/"+id)
             .then(data=>data.json())
             .then(data=>{
-                console.log(data);
+                // console.log(data);
                 setProduit(data.data);
-                console.log(produit)
+                console.log(data.data)
             })
         //fetch() // Commentaires sur la bière
         // Fetch() // La note...
@@ -34,7 +34,13 @@ export default function Details({estConnecte, courriel}){
         <section>
             <h1>Details d'une bière</h1>
             <h2>{produit.nom}</h2>
-            <p>{produit.description}</p>
+            <p>brasserie: {produit.brasserie}</p>
+            <p>Description: {produit.description}</p>
+            <p>Date ajout: {produit.date_ajout}</p>
+            <p>Id de biere: {produit.id_biere}</p>
+            <br/>
+            <p>Note: {produit.note}</p>
+            <p>Commentaire: {produit.commentaire}</p>
             {message}
         </section>
 

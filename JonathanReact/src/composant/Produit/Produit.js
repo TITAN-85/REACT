@@ -7,7 +7,7 @@ export default class Produit extends React.Component{
 
     }
     render(){
-        
+        // console.log(this.props);
         let prix = ""
         if(this.props.estConnecte){
             prix =  <>
@@ -19,6 +19,7 @@ export default class Produit extends React.Component{
             <article className="produit">
                 <p>Nom : {this.props.nom}</p>
                 <p>Nom : {this.props.biere.nom}</p>
+                {/* <p>Nom : {this.props.biere.description}</p> */}
                 {prix}
                 
             </article>
