@@ -32,7 +32,7 @@ export default class Entete extends React.Component{
   }
 
   seConnecter(){
-    
+
     this.props.seConnecter(this.state.courriel)
   }
   render(){

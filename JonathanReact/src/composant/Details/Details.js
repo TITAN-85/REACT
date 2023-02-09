@@ -1,78 +1,109 @@
 import "./Details.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { IoCloseCircleSharp, IoHammerSharp } from 'react-icons/io5'
 
-export default function Details({estConnecte, courriel}){
+export default function Details({ estConnecte, courriel }) {
     // console.log(estConnecte, courriel)
-    const {id} = useParams();
+    const { id } = useParams();
     //const params = useParams();
     //console.log(id, params)
+
     const [produit, setProduit] = useState({});
-    const [commentaires, setCommentaires] = useState({data : {}});
-    const [note, setNote] = useState({data : {}});
+    const [commentaires, setCommentaires] = useState([]);
+    const [note, setNote] = useState({});
+
+    const commentWriterFirst = 'Ajouter commentaire';
+    const commentWriterSecond = 'Lantement...';
 
 
-
-    useEffect(()=>{
-        fetch("//127.0.0.1:8000/webservice/php/biere/"+id)
-            .then(data=>data.json())
-            .then(data=>{
+    useEffect(() => {
+        fetch("//127.0.0.1:8000/webservice/php/biere/" + id)
+            .then(data => data.json())
+            .then(data => {
                 // console.log(data);
                 setProduit(data.data);
                 console.log(data)
             })
-        //fetch() // Commentaires sur la bière
-        // Fetch() // La note...
     }, [])
 
-    useEffect(()=>{
-        fetch("//127.0.0.1:8000/webservice/php/biere/"+id+"/commentaire")
-            .then(data=>data.json())
-            .then(data=>{
-                // console.log(data);
+
+    useEffect(() => {
+        fetch("//127.0.0.1:8000/webservice/php/biere/" + id + "/commentaire")
+            .then(data => data.json())
+            .then(data => {
+                console.log(data);
                 setCommentaires(data.data);
                 console.log(data)
             })
-        //fetch() // Commentaires sur la bière
-        // Fetch() // La note...
     }, [])
 
-    useEffect(()=>{
-        fetch("//127.0.0.1:8000/webservice/php/biere/"+id+"/note")
-            .then(data=>data.json())
-            .then(data=>{
-                // console.log(data);
+
+    useEffect(() => {
+        fetch("//127.0.0.1:8000/webservice/php/biere/" + id + "/note")
+            .then(data => data.json())
+            .then(data => {
+                console.log(data);
                 setNote(data.data);
-                // console.log(data)
+                console.log(data)
             })
-        //fetch() // Commentaires sur la bière
-        // Fetch() // La note...
     }, [])
-    
-    // console.log(commentaires);
-    // let lesCommentaire = commentaires.data.map(comment);
-    // console.log(comment);
+
+
+
+
+    // let arrayDemo = ['array1', 'array2', 'array3']
+    // let arrayDemo = [{'array1'}, {'array2'}, {'array3'}]
+
+    let aCommentaire = commentaires.map(unCommentaire => {
+        // console.log(unCommentaire);
+        return (
+            <div key={unCommentaire.id_commmentaire}> {unCommentaire.commentaire}</div>
+        )
+    });
+
+    let messageCom = "";
+    if (aCommentaire == 0) {
+        messageCom = <p>Aucun Commentaire disponible</p>;
+    }
 
     let message = "";
-    if(estConnecte){
+    if (estConnecte) {
         message = <p>Connecté avec : {courriel}</p>
     }
-    
+
     return (
-        <section>
-            <h1>Details d'une bière</h1>
-            <h2>{produit.nom}</h2>
-            <p>brasserie: {produit.brasserie}</p>
-            <p>Description: {produit.description}</p>
-            <p>Date ajout: {produit.date_ajout}</p>
-            <p>Id de biere: {produit.id_biere}</p>
-            <br/>
-            {/* <p>Note: {produit.note}</p> */}
-            {/* TODO: ForEach */}
-            {/* <p>Commentaire: {commentaires.commentaire}</p> */}
-            {/* <p>Commentaire: {lesCommentaire}</p> */}
+        <div>
+            <section className="biere-container">
+                {/* <h1>Details d'une bière</h1> */}
+                <div className="info-bierre">
+                    <h2>La bierre: {produit.nom}</h2>
+                    <p>brasserie: {produit.brasserie}</p>
+                    <p>Description: {produit.description}</p>
+                    <p>Id de biere: {produit.id_biere}</p>
+                    <p>Note: {note.note}</p>
+                </div>
+                <div className="form-container">
+                    <form className="form-class">
+                        <label for="commentaire-send" >{commentWriterFirst}</label>
+                        <textarea id="commentaire-send" type="text" ></textarea>
+                        <button >Envoye</button>
+                    </form>
+                </div>
+            </section>
+
+            <section className="commentaire-container">
+                <div className="commentaireBiere">
+                    {/* https://react-icons.github.io/react-icons/icons?name=ai */}
+                    <IoCloseCircleSharp className="delete-icon" />
+                    <IoHammerSharp className="delete-icon" />
+                    {aCommentaire}
+                </div>
+                {messageCom}
+            </section>
+
             {message}
-        </section>
+        </div>
 
     );
 

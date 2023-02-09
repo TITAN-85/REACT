@@ -1,0 +1,28 @@
+.commentaireBiere {
+    background-color: #152732;
+    margin: 20px;
+    color: white;
+    padding: 10px;
+    max-width: 400px;
+}
+
+.info-bierre, .form-container {
+    margin: 10px;
+    padding: 10px;
+    max-width: 400px;
+}
+
+main .delete-icon {
+    float: right;
+
+    margin-right: 10px;
+    color: #4c91bb;
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+main .edit-icon {
+    color: #4c91bb;
+    cursor: pointer;
+    transform: scale(1.3);
+}
