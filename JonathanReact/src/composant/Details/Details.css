@@ -26,3 +26,8 @@ main .edit-icon {
     cursor: pointer;
     transform: scale(1.3);
 }
+
+.commentaire-biere {
+    margin: 5px;
+    padding: 5px;
+}
