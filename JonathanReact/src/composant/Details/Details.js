@@ -13,6 +13,7 @@ export default function Details({ estConnecte, courriel }) {
     const [commentaires, setCommentaires] = useState([]);
     const [note, setNote] = useState({});
 
+
     const commentWriterFirst = 'Ajouter commentaire';
     const commentWriterSecond = 'Lantement...';
 
@@ -35,7 +36,7 @@ export default function Details({ estConnecte, courriel }) {
                 console.log(data);
                 setCommentaires(data.data);
                 console.log(data)
-            })
+            }) 
     }, [])
 
 
@@ -50,7 +51,9 @@ export default function Details({ estConnecte, courriel }) {
     }, [])
 
 
-
+    let commentSubmit = () => {
+        console.log('submit ok');
+    }
 
     // let arrayDemo = ['array1', 'array2', 'array3']
     // let arrayDemo = [{'array1'}, {'array2'}, {'array3'}]
@@ -84,10 +87,10 @@ export default function Details({ estConnecte, courriel }) {
                     <p>Note: {note.note}</p>
                 </div>
                 <div className="form-container">
-                    <form className="form-class">
+                    <form className="form-class" onSubmit={commentSubmit}>
                         <label for="commentaire-send" >{commentWriterFirst}</label>
-                        <textarea id="commentaire-send" type="text" ></textarea>
-                        <button >Envoye</button>
+                        <textarea name="commentaire-send" id="commentaire-send" type="text" ></textarea>
+                        <button type="submit"  value="submit">Envoye</button>
                     </form>
                 </div>
             </section>
