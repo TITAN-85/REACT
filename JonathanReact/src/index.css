@@ -674,7 +674,7 @@ nav.breadcrumb-nav ul li:last-child:after {
 	max-width: 100%;
 	padding-right: 0.625rem;
 	text-align: center;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 
 .aside-nav-text:after {
@@ -1455,7 +1455,7 @@ header h1 {
 	margin-right: 1.625rem;
 	max-width: 100%;
 	text-align: center;
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 
 .top-nav .menu-mobile:after {
@@ -1672,10 +1672,10 @@ section p {
 	opacity: 0.6;
 }
 
-.accueil .post-text p {
+/* .accueil .post-text p { */
 	/*font-size: 0.9rem;
   opacity: 0.6;*/
-}
+/* } */
 
 .post-date .date {
 	font-size: 3rem;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Entete.css';
+import Navigation from '../Navigation/Navigation';
 
 export default class Entete extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ export default class Entete extends React.Component {
               <span className="flex-spacer"></span>
               <p className="menu-mobile"></p>
             </div>
-            <span className="flex-spacer"></span>
+            {/* <span className="flex-spacer"></span> */}
             <ul>
               <li>
                 <NavLink to="/produit">Les produits</NavLink>
@@ -69,6 +70,7 @@ export default class Entete extends React.Component {
             </ul>
           </div>
         </nav>
+        <Navigation/>
       </header>
     );
   }
