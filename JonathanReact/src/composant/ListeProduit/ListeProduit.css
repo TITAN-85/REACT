@@ -10,7 +10,24 @@
 .mesProduits {
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    width: 1024px;
     /* border: 3px solid black; */
 }
 
+@media screen and (max-width: 1024px){
+    .mesProduits {
+        margin-left: auto;
+        margin-right: auto;
+        width: 688px;
+        /* border: 3px solid black; */
+    }
+}
+
+@media screen and (max-width: 768px){
+    .mesProduits {
+        margin-left: auto;
+        margin-right: auto;
+        width: 345px;
+        /* border: 3px solid black; */
+    }
+}

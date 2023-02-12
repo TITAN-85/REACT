@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Source+Sans+Pro&display=swap');
 /*
  * Responsee CSS - v5 - 2018-01-06
  * https://www.myresponsee.com
@@ -16,8 +18,9 @@
 body {
 	background: none repeat scroll 0 0 #eeeeee;
 	font-size: 16px;
-	font-family: "Open Sans", Arial, sans-serif;
 	color: #444;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
 }
 
 h1,
@@ -2103,4 +2106,20 @@ footer {
 
 html body {
 	background-color:#8ea4b1;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+p {
+	/* font-family: 'Montserrat', sans-serif; */
+	font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+header {
+	font-weight: 600;
 }

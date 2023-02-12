@@ -29,7 +29,6 @@ export default class ListeProduit extends React.Component{
     fetch("http://127.0.0.1:8000/webservice/php/biere")
       .then(data=>data.json())
       .then(data=>{
-        // console.log(data);
         this.setState({
           produits : data.data
         })
@@ -41,19 +40,12 @@ export default class ListeProduit extends React.Component{
 
     let aProduits = this.state.produits.map((unProduit)=>{
 
-      // key=unProduit.id_biere
-      // key={unProduit.id}
-      // console.log(unProduit.id_biere)
-      // key={unProduit.id_biere}
-      // Choisir sa façon, pas les deux...}
-        //<Produit nom={unProduit.nom} id={unProduit.id_biere} description={unProduit.description} />
       return ( 
         <Link key={unProduit.id_biere} to={"/produit/" + unProduit.id_biere}>
             <Produit key={unProduit.id_biere} estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 
         </Link>
       );
     })
-    // console.log(aProduits)
     
     if(aProduits.length <= 0){
       aProduits = <p>Aucun produit disponible</p>;
@@ -61,13 +53,11 @@ export default class ListeProduit extends React.Component{
 
     return (
       <div className="liste">
-        <h1>liste</h1>
-        <p>Compteur : {this.props.compteur}</p>
+        <h1>Liste de biere</h1>
+        {/* <p>Compteur : {this.props.compteur}</p> */}
         {/*}<p>{this.state.messageErreur}</p>{*/}
         <section className='mesProduits'>
-          {aProduits}
-          {/*}{(aProduits.length ? aProduits : "Aucun produit disponible")}{*/}
-          
+          {aProduits}          
         </section>
       </div>
       

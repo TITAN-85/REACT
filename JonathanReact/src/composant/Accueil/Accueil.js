@@ -11,7 +11,7 @@ export default class Accueil extends React.Component {
 
     render(){
         return(
-            <div className="pageAccueil">
+            <div className="pageAccueil accueil">
 				<div className="contenu">
 					<div className="bandeau">
 						<a href="/produit" className="btnAction">Notre sélection de produit</a>

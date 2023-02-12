@@ -1,15 +1,15 @@
-.produit {
+.produit-container {
     position: relative;
-    padding: 5px 5px 5px 5px;
-    text-align: center;
+    /* padding: 5px 5px 5px 5px; */
+    /* text-align: center; */
 }
-.produit .image {
+.produit-container .image {
     position: relative;
     top: 0px;
     left: 0px;
     opacity: 0.5;
 }
-.produit .texte {
+.produit-container .texte {
     position: absolute;
     width: 100%;
     top: 25%;
@@ -17,16 +17,41 @@
     flex-direction: column;
     font-size: 1.2em;
 }
-.produit .texte .nom, .produit .texte .brasserie {
+.produit-container .texte .nom, .produit .texte .brasserie {
     display: block;
 }
 /* #152732 */
 /* #2b4c61 */
 /* #162b4d */
 .produit {
+    display: flex;
     background-color: #162b4d;
-    margin: 2px;
+    margin: 10px;
     color: aliceblue;
-    min-width: 260px;
-    min-height: 120px;
+    min-width: 319px;
+    max-width: 319px;
+    min-height: 220px;
+    max-height: 220px;
+    /* border: 3px solid white; */
 }
+
+.produit-text p, 
+.produit-text h5 {
+    /* display: flex; */
+    /* justify-content: flex-end; */
+    padding: 10px;
+}
+
+h5, p {
+    color: white;
+    margin: 10px;
+}
+
+.descr {
+    max-width: 50ch;
+}
+
+.img-biere {
+    max-height: 240px;
+}
+

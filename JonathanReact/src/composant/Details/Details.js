@@ -4,10 +4,9 @@ import { useParams } from "react-router-dom";
 import { IoCloseCircleSharp, IoHammerSharp } from 'react-icons/io5'
 
 export default function Details({ estConnecte, courriel }) {
-    // console.log(estConnecte, courriel)
+
     const { id } = useParams();
-    //const params = useParams();
-    //console.log(id, params)
+
     const api_url = "http://127.0.0.1:8000/webservice/php/";
 
     const [valeurCommentaireSend, setCommentairesSend] = useState({});
@@ -19,14 +18,12 @@ export default function Details({ estConnecte, courriel }) {
 
 
     const commentWriterFirst = 'Ajouter commentaire';
-    const commentWriterSecond = 'Lantement...';
 
 
     useEffect(() => {
         fetch(api_url + "/biere/" + id)
             .then(data => data.json())
             .then(data => {
-                // console.log(data);
                 setProduit(data.data);
                 console.log(data)
             })
@@ -37,7 +34,6 @@ export default function Details({ estConnecte, courriel }) {
         fetch(api_url + "/biere/" + id + "/commentaire")
             .then(data => data.json())
             .then(data => {
-                console.log(data);
                 setCommentaires(data.data);
                 console.log(data)
             })
@@ -48,7 +44,6 @@ export default function Details({ estConnecte, courriel }) {
         fetch(api_url + "/biere/" + id + "/note")
             .then(data => data.json())
             .then(data => {
-                console.log(data);
                 setNote(data.data);
                 console.log(data)
             })
@@ -65,6 +60,7 @@ export default function Details({ estConnecte, courriel }) {
         // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setCommentairesSend(commentaire)
     }
+
     // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const noteValeur = (evn) => {
         // evn.preventDefault();
@@ -78,7 +74,8 @@ export default function Details({ estConnecte, courriel }) {
     }
 
 
-    const commentSubmit = () => {
+    const commentSubmit = (e) => {
+        // e.preventDefault();
 
         var entete = new Headers();
         entete.append("Content-Type", "application/json");
@@ -88,10 +85,10 @@ export default function Details({ estConnecte, courriel }) {
             method: "PUT",
             body: JSON.stringify(valeurCommentaireSend),
             headers: entete
+
         })
             .then(reponse => reponse.json())
             .then(data => {
-                console.log(data);
                 setCommentaires(data.data);
                 console.log(data);
             });
@@ -111,7 +108,6 @@ export default function Details({ estConnecte, courriel }) {
         })
             .then(reponse => reponse.json())
             .then(data => {
-                console.log(data);
                 setNote(data.data);
                 console.log(data);
             });
@@ -139,26 +135,17 @@ export default function Details({ estConnecte, courriel }) {
     // }
 
 
-    // let arrayDemo = ['array1', 'array2', 'array3']
-    // let arrayDemo = [{'array1'}, {'array2'}, {'array3'}]
-
     let aCommentaire = commentaires.map(unCommentaire => {
         // console.log(unCommentaire);
         return (
             <div className="commentaireBiere" key={unCommentaire.id_commmentaire}>
-                <div>
-                    <IoCloseCircleSharp className="delete-icon" />
-                </div>
-                <div>
-                    <IoHammerSharp className="delete-icon" />
-                </div>
 
-                <div >
-                    {unCommentaire.courriel}
-                </div>
-                <div >
-                    {unCommentaire.commentaire}
-                </div>
+                <div><IoCloseCircleSharp className="delete-icon" /></div>
+                <div><IoHammerSharp className="delete-icon" /></div>
+
+                <div>{unCommentaire.courriel}</div>
+                <div>{unCommentaire.commentaire}</div>
+
             </div>
         )
     });
@@ -211,10 +198,8 @@ export default function Details({ estConnecte, courriel }) {
     }
 
 
-
-
     return (
-        <div>
+        <div className="detail-container">
             <section className="biere-container">
                 {/* <h1>Details d'une bière</h1> */}
                 <div className="info-bierre">
@@ -224,23 +209,20 @@ export default function Details({ estConnecte, courriel }) {
                     <p>Id de biere: {produit.id_biere}</p>
                     <p>Note: {note.note}</p>
                 </div>
-
-                {formComment}
-                {formNote}
-
+                <div>
+                    {message}
+                    {formComment}
+                    {formNote}
+                </div>
             </section>
 
             <section className="commentaire-container">
                 <div >
-                    {/* https://react-icons.github.io/react-icons/icons?name=ai */}
-                    {/* <IoCloseCircleSharp className="delete-icon" />
-                    <IoHammerSharp className="delete-icon" /> */}
                     {aCommentaire}
+                    {messageCom}
                 </div>
-                {messageCom}
             </section>
 
-            {message}
         </div>
 
     );

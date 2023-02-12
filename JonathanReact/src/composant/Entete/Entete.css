@@ -2,3 +2,7 @@
 .pageActive {
     font-weight: bold;
 }
+
+.login-container {
+    display: flex;
+}
