@@ -53,10 +53,13 @@ export default function Details({ estConnecte, courriel }) {
     // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const commentaireValeur = (evn) => {
         // evn.preventDefault();
+
         let commentaire = {
+            
             courriel: courriel,
             commentaire: evn.target.value
         };
+
         console.log(evn.target.value);
         // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setCommentairesSend(commentaire)
@@ -78,7 +81,7 @@ export default function Details({ estConnecte, courriel }) {
 
 
     const commentSubmit = (e) => {
-
+        e.preventDefault();
         var entete = new Headers();
         entete.append("Content-Type", "application/json");
         entete.append("Authorization", "Basic " + btoa("biero:biero"));
@@ -89,15 +92,23 @@ export default function Details({ estConnecte, courriel }) {
             headers: entete
 
         })
-            .then(reponse => reponse.json())
+            // .then(reponse => reponse.json())
+            // .then(data => {
+            //     setCommentaires(data.data);
+            //     console.log(data);
+            // });
+
+            fetch(api_url + "/biere/" + id + "/commentaire")
+            .then(data => data.json())
             .then(data => {
                 setCommentaires(data.data);
-                console.log(data);
-            });
+                console.log(data)
+            })
     }
 
 
-    const noteSubmit = () => {
+    const noteSubmit = (e) => {
+        e.preventDefault();
 
         var entete = new Headers();
         entete.append("Content-Type", "application/json");
@@ -108,11 +119,12 @@ export default function Details({ estConnecte, courriel }) {
             body: JSON.stringify(valeurNoteSend),
             headers: entete
         })
-            .then(reponse => reponse.json())
+
+        fetch(api_url + "/biere/" + id + "/note")
+            .then(data => data.json())
             .then(data => {
                 setNote(data.data);
-                console.log(data);
-            });
+            })
     }
 
 
