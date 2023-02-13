@@ -60,10 +60,12 @@ export default function Details({ estConnecte, courriel }) {
         // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setCommentairesSend(commentaire)
     }
+    let noteActuel = '';
 
     // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const noteValeur = (evn) => {
         // evn.preventDefault();
+        noteActuel = evn.target.value;
         let note = {
             courriel: courriel,
             note: evn.target.value
@@ -75,7 +77,6 @@ export default function Details({ estConnecte, courriel }) {
 
 
     const commentSubmit = (e) => {
-        // e.preventDefault();
 
         var entete = new Headers();
         entete.append("Content-Type", "application/json");
@@ -113,26 +114,6 @@ export default function Details({ estConnecte, courriel }) {
             });
     }
 
-    // const biereDelete = () => {
-
-    //     var entete = new Headers();
-    //     entete.append("Content-Type", "application/json");
-    //     entete.append("Authorization", "Basic " + btoa("biero:biero"));
-
-    //     fetch(api_url + "biere" + "/" + id + "/commentaire", {
-    //         method: "delete",
-    //         body: JSON.stringify({
-    //             id: id,
-    //             courriel : courriel
-    //         }),
-    //         headers: entete
-    //     })
-    //         .then(reponse => reponse.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             console.log(data);
-    //         });
-    // }
 
 
     let aCommentaire = commentaires.map(unCommentaire => {
@@ -151,6 +132,17 @@ export default function Details({ estConnecte, courriel }) {
     });
 
 
+    // let inputRate = '';
+
+    // inputRate = <div>;
+
+    {/* for (let i = 0; i < 9; i++) {
+        inputRate += <input type="radio" value={i} name="valeurNoteSend" id="note-send" placeholder="Note"> </input>
+    } */}
+
+    {/* inputRate += </div>; */ }
+
+    // console.log(inputRate);
 
     let messageCom = "";
     if (aCommentaire == 0) {
@@ -163,7 +155,6 @@ export default function Details({ estConnecte, courriel }) {
 
     if (estConnecte) {
         message = <p>Connecté avec : {courriel}</p>
-
         formComment =
             <div className="form-container">
                 <form className="form-class" onSubmit={commentSubmit}>
@@ -182,15 +173,36 @@ export default function Details({ estConnecte, courriel }) {
         formNote =
             <div className="form-container">
                 <form className="form-class" onSubmit={noteSubmit}>
-                    <label for="commentaire-send" >{commentWriterFirst}</label>
 
-                    <input
+                    {/* <label for="note-send" >{commentWriterFirst}</label>
+                     <input
                         onChange={noteValeur}
                         name="valeurNoteSend"
-                        id="commentaire-send"
+                        id="note-send"
                         placeholder="Note"
-                    >
-                    </input>
+                    > 
+                    </input>*/}
+
+                    {/* https://stackoverflow.com/questions/51915053/facing-issue-while-adding-radio-button-in-react-input-is-a-void-element-tag-an */}
+                    <label for="note-send" >{commentWriterFirst}</label>
+
+                    <div>
+                        <input type="radio" value="1" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="2" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="3" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="4" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="5" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="6" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="7" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="8" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="9" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input type="radio" value="10" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                    </div>
+
+                    {/* <div>Votre note actuel es: {noteActuel}</div> */}
+                    {/* <div>Votre note actuel es: {this.state.valeurNoteSend.note}</div> */}
+                    <div>Vous avez entré la note: {valeurNoteSend.note}</div>
+
 
                     <button type="submit" value="submit">Envoye</button>
                 </form>
@@ -199,6 +211,7 @@ export default function Details({ estConnecte, courriel }) {
 
 
     return (
+
         <div className="detail-container">
             <section className="biere-container">
                 {/* <h1>Details d'une bière</h1> */}
@@ -206,13 +219,16 @@ export default function Details({ estConnecte, courriel }) {
                     <h2>La bierre: {produit.nom}</h2>
                     <p>brasserie: {produit.brasserie}</p>
                     <p>Description: {produit.description}</p>
-                    <p>Id de biere: {produit.id_biere}</p>
-                    <p>Note: {note.note}</p>
+                    {/* <p>Id de biere: {produit.id_biere}</p> */}
+                    <div className="noteMoyenne">
+                        <p>Note moyenne: {Math.max(note.note)}</p>
+                    </div>
                 </div>
                 <div>
                     {message}
                     {formComment}
                     {formNote}
+                    {/* {inputRate} */}
                 </div>
             </section>
 

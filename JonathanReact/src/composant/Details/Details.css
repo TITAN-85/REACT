@@ -55,6 +55,16 @@ main .edit-icon {
     /* border: 3px solid black; */
 }
 
+.noteMoyenne p{
+    padding: 5px 10px ;
+    display: inline-block;
+    background-color: antiquewhite;
+    color: rgb(163, 33, 33);
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: medium;
+}
+
 @media screen and (max-width: 1024px){
     .detail-container {
         margin-left: auto;
