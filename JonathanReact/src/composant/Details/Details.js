@@ -17,7 +17,8 @@ export default function Details({ estConnecte, courriel }) {
     const [note, setNote] = useState({});
 
 
-    const commentWriterFirst = 'Ajouter commentaire';
+    const commentWriterFirst = 'Ajouter une commentaire';
+    const noteWriterFirst = 'Ajouter une note';
 
 
     useEffect(() => {
@@ -174,29 +175,20 @@ export default function Details({ estConnecte, courriel }) {
             <div className="form-container">
                 <form className="form-class" onSubmit={noteSubmit}>
 
-                    {/* <label for="note-send" >{commentWriterFirst}</label>
-                     <input
-                        onChange={noteValeur}
-                        name="valeurNoteSend"
-                        id="note-send"
-                        placeholder="Note"
-                    > 
-                    </input>*/}
-
                     {/* https://stackoverflow.com/questions/51915053/facing-issue-while-adding-radio-button-in-react-input-is-a-void-element-tag-an */}
-                    <label for="note-send" >{commentWriterFirst}</label>
+                    <label for="note-send" >{noteWriterFirst}</label>
 
                     <div>
-                        <input type="radio" value="1" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="2" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="3" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="4" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="5" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="6" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="7" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="8" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="9" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
-                        <input type="radio" value="10" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="1" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="2" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="3" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="4" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="5" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="6" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="7" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="8" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="9" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
+                        <input className="radio" type="radio" value="10" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
                     </div>
 
                     {/* <div>Votre note actuel es: {noteActuel}</div> */}
