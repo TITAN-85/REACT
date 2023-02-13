@@ -14,13 +14,13 @@ export default class Accueil extends React.Component {
     render() {
         return (
             <div className="pageAccueil accueil">
-                <div>
-                    {/* <img src={headerPhoto}> */}
-                        <div>
+                {/* <div> */}
+                    <img src={headerPhoto}>
+                        {/* <div>
                             <NavLink to="/biere">Notre sélection de produit</NavLink>
-                        </div>
-                    {/* </img> */}
-                </div>
+                        </div> */}
+                    </img>
+                {/* </div> */}
 
                 <div className="contenu">
                     <div className="bandeau">
