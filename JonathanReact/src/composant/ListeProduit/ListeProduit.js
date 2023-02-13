@@ -41,7 +41,7 @@ export default class ListeProduit extends React.Component{
     let aProduits = this.state.produits.map((unProduit)=>{
 
       return ( 
-        <Link key={unProduit.id_biere} to={"/produit/" + unProduit.id_biere}>
+        <Link key={unProduit.id_biere} to={"/biere/" + unProduit.id_biere}>
             <Produit key={unProduit.id_biere} estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 
         </Link>
       );
@@ -52,8 +52,9 @@ export default class ListeProduit extends React.Component{
     }
 
     return (
-      <div className="liste">
-        <h1>Liste de biere</h1>
+      <div>
+      {/* <div className="liste"> */}
+        <h1 className='titre-centre'>Liste de biere</h1>
         {/* <p>Compteur : {this.props.compteur}</p> */}
         {/*}<p>{this.state.messageErreur}</p>{*/}
         <section className='mesProduits'>

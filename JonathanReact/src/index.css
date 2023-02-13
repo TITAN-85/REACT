@@ -1407,7 +1407,7 @@ nav {
 
 }
 
-a.logo {
+/* a.logo {
 	color: #fff;
 	display: inline-block;
 	font-size: 2.3rem;
@@ -1415,12 +1415,12 @@ a.logo {
 	letter-spacing: -1px;
 	padding: 0.55em;
 	padding: 0.55em;
-}
+} */
 
-a.logo span {
+/* a.logo span {
 	color: #FFF;
 	font-weight: 100;
-}
+} */
 
 header h1 {
 	color: #637693;

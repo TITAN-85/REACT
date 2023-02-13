@@ -5,6 +5,17 @@
 
 .login-container {
     display: flex;
+    flex-direction: column;
+}
+
+.login {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.login p {
+    padding: 0;
+    margin: 0;
 }
 
 .top-nav {
@@ -12,4 +23,13 @@
     margin-right: auto;
     max-width: 995px;
     /* border: 2px solid black; */
+}
+
+a .logo {
+    padding: 0;
+    margin: 0;
+}
+
+.logo {
+    max-width: 80px;
 }

@@ -40,9 +40,9 @@ export default class App extends React.Component {
       <Router id="App">
         <Entete seConnecter={this.connection} estConnecte={this.state.estConnecte} />
         <Routes>
-          <Route path="/" element={<Accueil />} />
-          <Route path="/produit" element={<ListeProduit />} />
-          <Route path="/produit/:id" element={<Details estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
+          <Route path="/" element={<Accueil estConnecte={this.state.estConnecte} courriel={this.state.courriel}/>} />
+          <Route path="/biere" element={<ListeProduit estConnecte={this.state.estConnecte} courriel={this.state.courriel}/>} />
+          <Route path="/biere/:id" element={<Details estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
         </Routes>
       </Router>
 

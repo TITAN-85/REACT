@@ -140,8 +140,8 @@ export default function Details({ estConnecte, courriel }) {
         return (
             <div className="commentaireBiere" key={unCommentaire.id_commmentaire}>
 
-                <div><IoCloseCircleSharp className="delete-icon" /></div>
-                <div><IoHammerSharp className="delete-icon" /></div>
+                {/* <div><IoCloseCircleSharp className="delete-icon" /></div> */}
+                {/* <div><IoHammerSharp className="delete-icon" /></div> */}
 
                 <div>{unCommentaire.courriel}</div>
                 <div>{unCommentaire.commentaire}</div>

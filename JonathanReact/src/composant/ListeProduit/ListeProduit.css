@@ -14,6 +14,10 @@
     /* border: 3px solid black; */
 }
 
+.titre-centre {
+    text-align: center;
+}
+
 @media screen and (max-width: 1024px){
     .mesProduits {
         margin-left: auto;

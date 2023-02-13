@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Entete.css';
-import Navigation from '../Navigation/Navigation';
+import logoPhoto from './img/LOGO-FINAL-svg.png';
+
 
 export default class Entete extends React.Component {
   constructor(props) {
@@ -48,29 +49,36 @@ export default class Entete extends React.Component {
       <header className="App-header">
         <nav>
           <div className="top-nav">
+
             <div className="barre">
-              <Link className="logo" to="/">B<span>iero</span></Link>
+              <Link className="logo" to="/"> <img  src={logoPhoto} /></Link>
               <span className="flex-spacer"></span>
               <p className="menu-mobile"></p>
             </div>
-            {/* <span className="flex-spacer"></span> */}
+
+            <span className="flex-spacer"></span>
+
             <ul>
               <li>
-                <NavLink to="/produit">Les produits</NavLink>
+                <NavLink to="/">Accueil</NavLink>
+              </li>
+              <li>
+                <NavLink to="/biere">Les produits</NavLink>
               </li>
             </ul>
-            <ul className='login-container'>
-              <li>
+
+            <div className='login-container'>
+              <div className='login'> 
                 <p>Courriel : <input disabled={this.props.estConnecte} type="email" onChange={this.setCourriel}></input></p>
-              </li>
-              <li>
+              </div>
+              <div className='login'>
                 <button disabled={!this.state.courrielValide} onClick={this.seConnecter}>{btnConnecter}</button>
-              </li>
+              </div>
               {/* {this.messageError} */}
-            </ul>
+            </div>
+
           </div>
         </nav>
-        <Navigation/>
       </header>
     );
   }
