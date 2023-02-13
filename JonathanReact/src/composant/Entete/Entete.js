@@ -69,7 +69,7 @@ export default class Entete extends React.Component {
 
             <div className='login-container'>
               <div className='login'> 
-                <p>Courriel : <input disabled={this.props.estConnecte} type="email" onChange={this.setCourriel}></input></p>
+                <p>Courriel : <input disabled={this.props.estConnecte} type="email" onChange={this.setCourriel} value="alex@alex.com"></input></p>
               </div>
               <div className='login'>
                 <button disabled={!this.state.courrielValide} onClick={this.seConnecter}>{btnConnecter}</button>

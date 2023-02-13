@@ -13,19 +13,17 @@ export default class Accueil extends React.Component {
 
     render() {
         return (
-            <div className="pageAccueil accueil">
-                {/* <div> */}
-                    <img src={headerPhoto}>
-                        {/* <div>
-                            <NavLink to="/biere">Notre sélection de produit</NavLink>
-                        </div> */}
-                    </img>
-                {/* </div> */}
+            <div className="pageAccueil ">
+                <div className="photo-banner">
+                    <img src={headerPhoto} />
+                    <div className='photo-banner-text'>
+                        <NavLink class="photo-banner-title" to="/biere">Biere de Montreal</NavLink>
+                        <NavLink class="photo-banner-title" to="/biere">Notre sélection de produit</NavLink>
+                    </div>
+                </div>
+
 
                 <div className="contenu">
-                    <div className="bandeau">
-                        <a href="/biere" className="btnAction">Notre sélection de produit</a>
-                    </div>
                     <div className="arguments">
                         <div>Argument 1 : (à compléter)
                             <p>Pourquoi utiliser notre application?</p><p>Lorem ipsum...</p>
@@ -38,7 +36,7 @@ export default class Accueil extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         );
     }
 }
