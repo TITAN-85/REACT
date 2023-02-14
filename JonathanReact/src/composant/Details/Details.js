@@ -2,6 +2,7 @@ import "./Details.css";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IoCloseCircleSharp, IoHammerSharp } from 'react-icons/io5'
+// import { interval } from 'rxjs';
 
 export default function Details({ estConnecte, courriel }) {
 
@@ -12,14 +13,13 @@ export default function Details({ estConnecte, courriel }) {
     const [valeurCommentaireSend, setCommentairesSend] = useState({});
     const [valeurNoteSend, setNoteSend] = useState({});
 
+
     const [produit, setProduit] = useState({});
     const [commentaires, setCommentaires] = useState([]);
     const [note, setNote] = useState({});
 
-
     const commentWriterFirst = 'Ajouter une commentaire';
     const noteWriterFirst = 'Ajouter une note';
-
 
     useEffect(() => {
         fetch(api_url + "/biere/" + id)
@@ -50,12 +50,13 @@ export default function Details({ estConnecte, courriel }) {
             })
     }, [])
 
+
     // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const commentaireValeur = (evn) => {
         // evn.preventDefault();
 
         let commentaire = {
-            
+
             courriel: courriel,
             commentaire: evn.target.value
         };
@@ -64,8 +65,9 @@ export default function Details({ estConnecte, courriel }) {
         // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setCommentairesSend(commentaire)
     }
-    let noteActuel = '';
 
+    
+    let noteActuel = '';
     // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const noteValeur = (evn) => {
         // evn.preventDefault();
@@ -79,7 +81,6 @@ export default function Details({ estConnecte, courriel }) {
         setNoteSend(note)
     }
 
-
     const commentSubmit = (e) => {
         e.preventDefault();
         var entete = new Headers();
@@ -92,18 +93,16 @@ export default function Details({ estConnecte, courriel }) {
             headers: entete
 
         })
-            // .then(reponse => reponse.json())
-            // .then(data => {
-            //     setCommentaires(data.data);
-            //     console.log(data);
-            // });
-
-            fetch(api_url + "/biere/" + id + "/commentaire")
-            .then(data => data.json())
+            .then(reponse => reponse.json())
             .then(data => {
-                setCommentaires(data.data);
-                console.log(data)
-            })
+                console.log(data);
+                fetch(api_url + "/biere/" + id + "/commentaire")
+                    .then(data => data.json())
+                    .then(data => {
+                        setCommentaires(data.data);
+                        console.log(data.data)
+                    })
+            });
     }
 
 
@@ -119,18 +118,20 @@ export default function Details({ estConnecte, courriel }) {
             body: JSON.stringify(valeurNoteSend),
             headers: entete
         })
-
-        fetch(api_url + "/biere/" + id + "/note")
-            .then(data => data.json())
+            .then(reponse => reponse.json())
             .then(data => {
-                setNote(data.data);
-            })
+                console.log(data);
+                fetch(api_url + "/biere/" + id + "/note")
+                    .then(data => data.json())
+                    .then(data => {
+                        setNote(data.data);
+                    })
+            });
+
     }
 
 
-
     let aCommentaire = commentaires.map(unCommentaire => {
-        // console.log(unCommentaire);
         return (
             <div className="commentaireBiere" key={unCommentaire.id_commmentaire}>
 
@@ -145,26 +146,16 @@ export default function Details({ estConnecte, courriel }) {
     });
 
 
-    // let inputRate = '';
-
-    // inputRate = <div>;
-
-    {/* for (let i = 0; i < 9; i++) {
-        inputRate += <input type="radio" value={i} name="valeurNoteSend" id="note-send" placeholder="Note"> </input>
-    } */}
-
-    {/* inputRate += </div>; */ }
-
-    // console.log(inputRate);
-
     let messageCom = "";
     if (aCommentaire == 0) {
         messageCom = <p>Aucun Commentaire disponible</p>;
     }
 
+
     let message = "";
     let formComment = '';
     let formNote = '';
+
 
     if (estConnecte) {
         message = <p>Connecté avec : {courriel}</p>

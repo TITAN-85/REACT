@@ -21,31 +21,8 @@ export default class Produit extends React.Component {
                 },
             ]
         }
-
-
     }
     render() {
-        // console.log(this.props);
-        // let prix = ""
-        // if(this.props.estConnecte){
-        //     prix =  <>
-        //                 <p>Prix : {this.props.prix}</p>
-        //                 <p>Prix : {this.props.biere.prix}</p>
-        //             </>;
-        // }
-        // console.log(this.props);
-        // console.log(this.props.biere.nom);
-        console.log(this.state.imageBiere);
-
-        // let allImg = this.state.imageBiere.map((unImage) => {
-
-        //     return (
-        //         <div>
-        //             <img src={unImage.nom}></img>
-        //         </div>
-        //     )
-        // });
-        // console.log(allImg);
 
         return (
 

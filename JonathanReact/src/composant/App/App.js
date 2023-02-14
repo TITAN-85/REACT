@@ -5,6 +5,7 @@ import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Accueil from '../Accueil/Accueil';
 import Details from '../Details/Details';
+import Footer from '../Footer/Footer';
 
 export default class App extends React.Component {
   constructor() {
@@ -44,6 +45,7 @@ export default class App extends React.Component {
           <Route path="/biere" element={<ListeProduit estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
           <Route path="/biere/:id" element={<Details estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
         </Routes>
+        <Footer/>
       </Router>
 
     );

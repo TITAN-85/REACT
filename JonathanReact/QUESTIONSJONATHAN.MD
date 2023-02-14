@@ -5,4 +5,4 @@
 
 2. Page accueil? 
 
-3. Pourquoi quand j'ajoute note ou commentaire, le usager se refrech ?
+3. Comment cree pluseur input radio avec loop for

@@ -1,1 +1,15 @@
-/* TODO: */
+
+.footer-container {
+    background-color: #162b4d;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 200px;
+    margin-top: 20px;
+    box-shadow:  3px 0 4px #000;
+}
+
+
+/* #152732 */
+/* #2b4c61 */
+/* #162b4d */

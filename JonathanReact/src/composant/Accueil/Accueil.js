@@ -3,6 +3,7 @@ import React from 'react';
 import './Accueil.css';
 import headerPhoto from './img/48241-2.jpg';
 import { Link, NavLink } from 'react-router-dom';
+import Produit from '../Produit/Produit';
 
 
 export default class Accueil extends React.Component {
@@ -17,8 +18,8 @@ export default class Accueil extends React.Component {
                 <div className="photo-banner">
                     <img src={headerPhoto} />
                     <div className='photo-banner-text'>
-                        <NavLink class="photo-banner-title" to="/biere">Biere de Montreal</NavLink>
-                        <NavLink class="photo-banner-title" to="/biere">Notre sélection de produit</NavLink>
+                        <NavLink className="photo-banner-title" to="/biere">Biere de Montreal</NavLink>
+                        <NavLink className="photo-banner-title" to="/biere">Notre sélection de produit</NavLink>
                     </div>
                 </div>
 
