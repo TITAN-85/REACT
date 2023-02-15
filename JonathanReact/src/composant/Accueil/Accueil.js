@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './Accueil.css';
-import headerPhoto from './img/48241-2.jpg';
+import headerPhoto from './img/mainFoto02.jpg';
 import bierePhoto from './img/brisquola-300x300.png';
 import bierePhoto2 from './img/Chooch-can-300x300.png';
 import bierePhoto3 from './img/Lubriaque-can-alone-120x300.png';

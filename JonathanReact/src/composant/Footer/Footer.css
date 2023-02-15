@@ -1,15 +1,35 @@
 
 .footer-container {
-    background-color: #162b4d;
-    width: 1024px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: var(--color-primary-second-variation);
+
     min-height: 200px;
     margin-top: 20px;
     box-shadow:  3px 0 4px #000;
 }
 
 
+
+.footer-header {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* #152732 */
 /* #2b4c61 */
 /* #162b4d */
+
+:root {
+	--color-primary: #208e9f;
+	--color-primary-variation: #915e00;
+	--color-primary-second-variation:#661502;
+	--color-secondary: #7eb78c;
+	--color-secondary-variation:#27853e  ;
+	--color-palette-first: #dfce9e;
+	--color-palette-second: #464a50; 
+	--color-palette-plus: #bbbec4; 
+	--color-palette-second-var: #208e9f;
+	--color-palette-third: #dfeaf5;
+	--color-dark: #201D1F;
+	--color-white: #ffffff;
+}
