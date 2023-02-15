@@ -5,9 +5,10 @@
     min-height: 200px;
     margin-top: 20px;
     box-shadow:  3px 0 4px #000;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-
-
 
 .footer-header {
     width: 1024px;
@@ -18,6 +19,19 @@
 /* #152732 */
 /* #2b4c61 */
 /* #162b4d */
+
+.footer-header {
+	display: flex;
+	justify-content: center;
+}
+
+.main-text {
+	font-size: 21px;
+	text-align: center;
+	font-weight: 700;
+	color: white;
+
+}
 
 :root {
 	--color-primary: #208e9f;

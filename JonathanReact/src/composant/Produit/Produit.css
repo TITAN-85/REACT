@@ -1,3 +1,18 @@
+:root {
+	--color-primary: #0b577a;
+	--color-primary-variation: #e49400;
+	--color-primary-second-variation:#661502;
+	--color-secondary: #7eb78c;
+	--color-secondary-variation:#27853e  ;
+	--color-palette-first: #dfce9e;
+	--color-palette-second: #464a50; 
+	--color-palette-plus: #bbbec4; 
+	--color-palette-second-var: #208e9f;
+	--color-palette-third: #dfeaf5;
+	--color-dark: #201D1F;
+	--color-white: #ffffff;
+}
+
 .produit-container {
     position: relative;
     /* padding: 5px 5px 5px 5px; */
@@ -25,14 +40,21 @@
 /* #162b4d */
 .produit {
     display: flex;
-    background-color: #162b4d;
+    background-color: #eb9800;
     margin: 10px;
     color: aliceblue;
     min-width: 319px;
     max-width: 319px;
     min-height: 220px;
     max-height: 220px;
+    border-radius: 20px 0px ;
     /* border: 3px solid white; */
+}
+
+.produit:hover {
+    background-color: #208c9f;
+    transition: 0.2s;
+    /* border: 2px solid #115a42; */
 }
 
 .produit-text p, 
@@ -40,11 +62,18 @@
     /* display: flex; */
     /* justify-content: flex-end; */
     padding: 10px;
+    font-weight: 700;
 }
 
 h5, p {
-    color: white;
+    color: rgb(255, 255, 255);
     margin: 10px;
+    font-size: 16px;
+}
+
+
+.login p {
+    color: #dfeaf5;
 }
 
 .descr {

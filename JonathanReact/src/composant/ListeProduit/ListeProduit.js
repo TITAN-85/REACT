@@ -33,7 +33,6 @@ export default class ListeProduit extends React.Component{
           produits : data.data
         })
       })
-
   }
 
   render(){

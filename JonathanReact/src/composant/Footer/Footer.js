@@ -12,7 +12,7 @@ export default class Footer extends React.Component {
         return (
             <div className="footer-container">
                 <div className="footer-header">
-                    <div className="main-text">WTF, I'm Footer</div>
+                    <div className="main-text">Contactez-nous</div>
                 </div>
             </div>
         )
