@@ -65,6 +65,9 @@ export default class Entete extends React.Component {
               <li>
                 <NavLink to="/biere">Les produits</NavLink>
               </li>
+              <li>
+                <NavLink to="/users">Users</NavLink>
+              </li>
             </ul>
 
             <div className='login-container'>

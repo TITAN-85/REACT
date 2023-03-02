@@ -5,6 +5,10 @@ import './Footer.css';
 export default class Footer extends React.Component {
     constructor (props) {
         super(props)
+        this.state = {
+            helpText: "helpText",
+            userData: ""
+        }
     }
 
     render() {
@@ -16,6 +20,5 @@ export default class Footer extends React.Component {
                 </div>
             </div>
         )
-
     } 
 }

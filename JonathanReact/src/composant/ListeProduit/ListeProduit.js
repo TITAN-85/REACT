@@ -38,7 +38,6 @@ export default class ListeProduit extends React.Component{
   render(){
 
     let aProduits = this.state.produits.map((unProduit)=>{
-
       return ( 
         <Link key={unProduit.id_biere} to={"/biere/" + unProduit.id_biere}>
             <Produit key={unProduit.id_biere} estConnecte={this.props.estConnecte}  biere={unProduit} {...unProduit} /> 

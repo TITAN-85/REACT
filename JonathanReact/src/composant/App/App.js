@@ -6,6 +6,7 @@ import './App.css';
 import Accueil from '../Accueil/Accueil';
 import Details from '../Details/Details';
 import Footer from '../Footer/Footer';
+import Users from "../Users/Users";
 
 export default class App extends React.Component {
   constructor() {
@@ -44,6 +45,7 @@ export default class App extends React.Component {
           <Route path="/" element={<Accueil estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
           <Route path="/biere" element={<ListeProduit estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
           <Route path="/biere/:id" element={<Details estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
+          <Route path="/users" element={<Users estConnecte={this.state.estConnecte} courriel={this.state.courriel} />} />
         </Routes>
         <Footer/>
       </Router>
