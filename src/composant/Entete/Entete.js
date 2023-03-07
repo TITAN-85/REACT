@@ -11,7 +11,6 @@ export default class Entete extends React.Component {
       courrielValide: false,
       courriel: ""
     }
-    //this.connection = this.connection.bind(this)
     this.setCourriel = this.setCourriel.bind(this);
     this.seConnecter = this.seConnecter.bind(this);
 
@@ -19,16 +18,12 @@ export default class Entete extends React.Component {
   }
 
   setCourriel(evt) {
-    console.log(evt.target.value)
     let courriel = evt.target.value;
     let valide;
-
     let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
     if (courriel !== "" && courriel.match(regex)) { // Valide un courriel non vide... à refaire genre avec un regexp... tsé...
       valide = true;
     } else {
-      // this.messageError = 'the email is invalid. Please try again';
       valide = false;
     }
 
@@ -77,9 +72,7 @@ export default class Entete extends React.Component {
               <div className='login'>
                 <button disabled={!this.state.courrielValide} onClick={this.seConnecter}>{btnConnecter}</button>
               </div>
-              {/* {this.messageError} */}
             </div>
-
           </div>
         </nav>
       </header>

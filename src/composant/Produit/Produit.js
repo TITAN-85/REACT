@@ -28,13 +28,11 @@ export default class Produit extends React.Component {
 
             <article className="produit-container">
                 <div className='produit'>
-                    {/* {allImg} */}
                     <div><img className='img-biere' src={biereImg}></img></div>
                     <div className='produit-text'>
                         <h5>{this.props.nom}</h5>
                         <p>Brasserie: {this.props.brasserie}</p>
                         <p>Biere Nr. {this.props.id_biere}</p>
-                        {/* <p className='descr'>Biere Nr. {this.props.description}</p> */}
                     </div>
                 </div>
 

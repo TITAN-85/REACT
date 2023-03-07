@@ -30,12 +30,6 @@ export default class App extends React.Component {
     });
   }
 
-  // augmenteCompte(){
-  //   this.setState({
-  //     compteur : this.state.compteur+1
-  //   })
-  // }
-
   render() {
     return (
 

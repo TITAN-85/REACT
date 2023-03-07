@@ -9,6 +9,7 @@ export default function Details({ estConnecte, courriel }) {
     const { id } = useParams();
 
     const api_url = "http://127.0.0.1:8000/webservice/php/";
+    // const api_url = "https://beer.alexandrucandu.ca/webservice/php/";
 
     const [valeurCommentaireSend, setCommentairesSend] = useState({});
     const [valeurNoteSend, setNoteSend] = useState({});
@@ -26,7 +27,6 @@ export default function Details({ estConnecte, courriel }) {
             .then(data => data.json())
             .then(data => {
                 setProduit(data.data);
-                console.log(data)
             })
     }, [])
 
@@ -36,7 +36,6 @@ export default function Details({ estConnecte, courriel }) {
             .then(data => data.json())
             .then(data => {
                 setCommentaires(data.data);
-                console.log(data)
             })
     }, [])
 
@@ -46,38 +45,26 @@ export default function Details({ estConnecte, courriel }) {
             .then(data => data.json())
             .then(data => {
                 setNote(data.data);
-                console.log(data)
             })
     }, [])
 
 
-    // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const commentaireValeur = (evn) => {
-        // evn.preventDefault();
-
         let commentaire = {
-
             courriel: courriel,
             commentaire: evn.target.value
         };
-
-        console.log(evn.target.value);
-        // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setCommentairesSend(commentaire)
     }
 
     
     let noteActuel = '';
-    // https://codingbeautydev.com/blog/react-get-form-input-value-on-submit/
     const noteValeur = (evn) => {
-        // evn.preventDefault();
         noteActuel = evn.target.value;
         let note = {
             courriel: courriel,
             note: evn.target.value
         };
-        console.log(evn.target.value);
-        // https://javascript.plainenglish.io/react-get-input-value-on-change-16dcd6619caf
         setNoteSend(note)
     }
 
@@ -95,12 +82,12 @@ export default function Details({ estConnecte, courriel }) {
         })
             .then(reponse => reponse.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 fetch(api_url + "/biere/" + id + "/commentaire")
                     .then(data => data.json())
                     .then(data => {
                         setCommentaires(data.data);
-                        console.log(data.data)
+                        // console.log(data.data)
                     })
             });
     }
@@ -120,7 +107,6 @@ export default function Details({ estConnecte, courriel }) {
         })
             .then(reponse => reponse.json())
             .then(data => {
-                console.log(data);
                 fetch(api_url + "/biere/" + id + "/note")
                     .then(data => data.json())
                     .then(data => {
@@ -134,9 +120,6 @@ export default function Details({ estConnecte, courriel }) {
     let aCommentaire = commentaires.map(unCommentaire => {
         return (
             <div className="commentaireBiere" key={unCommentaire.id_commmentaire}>
-
-                {/* <div><IoCloseCircleSharp className="delete-icon" /></div> */}
-                {/* <div><IoHammerSharp className="delete-icon" /></div> */}
 
                 <div>{unCommentaire.courriel}</div>
                 <div>{unCommentaire.commentaire}</div>
@@ -178,9 +161,7 @@ export default function Details({ estConnecte, courriel }) {
             <div className="form-container">
                 <form className="form-class" onSubmit={noteSubmit}>
 
-                    {/* https://stackoverflow.com/questions/51915053/facing-issue-while-adding-radio-button-in-react-input-is-a-void-element-tag-an */}
                     <label for="note-send" >{noteWriterFirst}</label>
-
                     <div>
                         <input className="radio" type="radio" value="1" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
                         <input className="radio" type="radio" value="2" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
@@ -193,12 +174,7 @@ export default function Details({ estConnecte, courriel }) {
                         <input className="radio" type="radio" value="9" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
                         <input className="radio" type="radio" value="10" name="valeurNoteSend" id="note-send" placeholder="Note" onChange={noteValeur} />
                     </div>
-
-                    {/* <div>Votre note actuel es: {noteActuel}</div> */}
-                    {/* <div>Votre note actuel es: {this.state.valeurNoteSend.note}</div> */}
                     <div>Vous avez entré la note: {valeurNoteSend.note}</div>
-
-
                     <button type="submit" value="submit">Envoye</button>
                 </form>
             </div>;
@@ -209,12 +185,10 @@ export default function Details({ estConnecte, courriel }) {
 
         <div className="detail-container">
             <section className="biere-container">
-                {/* <h1>Details d'une bière</h1> */}
                 <div className="info-bierre">
                     <h2>La bierre: {produit.nom}</h2>
                     <p>brasserie: {produit.brasserie}</p>
                     <p>Description: {produit.description}</p>
-                    {/* <p>Id de biere: {produit.id_biere}</p> */}
                     <div className="noteMoyenne">
                         <p>Note moyenne: {Math.max(note.note)}</p>
                     </div>
@@ -223,7 +197,6 @@ export default function Details({ estConnecte, courriel }) {
                     {message}
                     {formComment}
                     {formNote}
-                    {/* {inputRate} */}
                 </div>
             </section>
 

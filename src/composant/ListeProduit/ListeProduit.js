@@ -27,6 +27,7 @@ export default class ListeProduit extends React.Component{
 
   componentDidMount(){
     fetch("http://127.0.0.1:8000/webservice/php/biere")
+    // fetch("https://beer.alexandrucandu.ca//webservice/php/biere")
       .then(data=>data.json())
       .then(data=>{
         this.setState({
@@ -51,10 +52,7 @@ export default class ListeProduit extends React.Component{
 
     return (
       <div>
-      {/* <div className="liste"> */}
         <h1 className='titre-centre'>Liste de biere</h1>
-        {/* <p>Compteur : {this.props.compteur}</p> */}
-        {/*}<p>{this.state.messageErreur}</p>{*/}
         <section className='mesProduits'>
           {aProduits}          
         </section>

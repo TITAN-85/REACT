@@ -5,8 +5,7 @@ import headerPhoto from './img/mainFoto02.jpg';
 import bierePhoto from './img/brisquola-300x300.png';
 import bierePhoto2 from './img/Chooch-can-300x300.png';
 import bierePhoto3 from './img/spina-can-1-300x300.png';
-import { Link, NavLink } from 'react-router-dom';
-import Produit from '../Produit/Produit';
+import { NavLink } from 'react-router-dom';
 
 
 export default class Accueil extends React.Component {
@@ -53,7 +52,6 @@ export default class Accueil extends React.Component {
                             <p>Maintenant plus que jamais, découvrez les producteurs artisans locaux passionnés qui exploitent avec fierté les richesses du terroir de la Belle Province.</p>
                         </div>
                     </section>
-
                 </div>
             </div>
         );
